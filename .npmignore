@@ -1,0 +1,4 @@
+machine.ts
+.npmignore
+test/
+tsconfig.json
