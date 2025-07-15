@@ -12,15 +12,15 @@ export declare class StateMachine {
     });
     static fromSerialized(json: string): StateMachine;
     start(initialState: string): StateMachine | string;
+    stop(): void;
     getCurrentState(): string | undefined;
     executeTransition(event: string): string;
     private findTransition;
 }
-interface Transition {
+export interface Transition {
     event: string;
     current: string;
     next: string;
-    transitionAction: () => void;
+    transitionAction?: () => void;
 }
-export {};
 //# sourceMappingURL=machine.d.ts.map

@@ -1,16 +1,25 @@
 {
   "name": "@mixbened/simple-state-machine",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "main": "dist/machine.js",
   "types": "dist/machine.d.ts",
-  "keywords": ["state machine", "node.js"],
+  "keywords": [
+    "state machine",
+    "node.js"
+  ],
   "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc -w",
-    "start": "tsc && node dist/machine.js"
+    "start": "tsc && node dist/machine.js",
+    "publish": "tsc && npm publish --access public",
+    "test": "jest test"
   },
-  "license" : "MIT"
+  "license": "MIT"
 }

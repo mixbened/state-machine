@@ -23,10 +23,14 @@ export class StateMachine {
 
   public start(initialState: string): StateMachine | string {
     if (this.stateList?.includes(initialState)) {
-      this.currentState = undefined;
+      this.currentState = initialState;
       return this;
     }
-    return this.error;
+    throw Error('State does not exist in state list.');
+  }
+
+  public stop(): void {
+    this.currentState = undefined;
   }
 
   public getCurrentState() {
@@ -45,15 +49,17 @@ export class StateMachine {
      return this.currentState;
   }
 
-  private findTransition(event: string): Transition | null {
-      return this.stateTransititons.filter(transition => transition.event === event)[0];
+  private findTransition(event: string): Transition | undefined {
+      return this.stateTransititons.find(
+        transition => transition.event === event && transition.current === this.currentState
+      ) 
   }
 
 }
 
-interface Transition {
+export interface Transition {
   event: string,
   current: string,
   next: string,
-  transitionAction: () => void
+  transitionAction?: () => void
 }

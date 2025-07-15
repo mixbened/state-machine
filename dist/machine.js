@@ -15,10 +15,13 @@ class StateMachine {
     start(initialState) {
         var _a;
         if ((_a = this.stateList) === null || _a === void 0 ? void 0 : _a.includes(initialState)) {
-            this.currentState = undefined;
+            this.currentState = initialState;
             return this;
         }
-        return this.error;
+        throw Error('State does not exist in state list.');
+    }
+    stop() {
+        this.currentState = undefined;
     }
     getCurrentState() {
         return this.currentState;
