@@ -13,4 +13,4 @@ A lightweight, class-based JavaScript/TypeScript state machine implementation. I
 ## 📦 Installation
 
 ```bash
-npm install simplestatemachine
+npm install @mixbened/simple-state-machine

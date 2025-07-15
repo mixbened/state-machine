@@ -1,6 +1,6 @@
 {
-  "name": "@mixbened/state-machine",
-  "version": "0.0.1",
+  "name": "@mixbened/simple-state-machine",
+  "version": "0.0.2",
   "main": "dist/machine.js",
   "types": "dist/machine.d.ts",
   "keywords": ["state machine", "node.js"],
