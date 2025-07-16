@@ -36,7 +36,7 @@ class StateMachine {
         return this.currentState;
     }
     findTransition(event) {
-        return this.stateTransititons.filter(transition => transition.event === event)[0];
+        return this.stateTransititons.find(transition => transition.event === event && transition.current === this.currentState);
     }
 }
 exports.StateMachine = StateMachine;

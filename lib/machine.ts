@@ -33,20 +33,20 @@ export class StateMachine {
     this.currentState = undefined;
   }
 
-  public getCurrentState() {
-    return this.currentState;
+  public getCurrentState<T>(): T {
+    return this.currentState as T;
   }
 
-  public executeTransition(event: string): string {
+  public executeTransition<T>(event: string): T {
     const foundTransition = this.findTransition(event);
 
-     if (!foundTransition) return this.error;
+     if (!foundTransition) return this.error as T;
 
-     if (this.currentState !== foundTransition.current) return this.error;
+     if (this.currentState !== foundTransition.current) return this.error as T;
 
      this.currentState = foundTransition.next;
 
-     return this.currentState;
+     return this.currentState as T;
   }
 
   private findTransition(event: string): Transition | undefined {
