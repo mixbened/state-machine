@@ -3,7 +3,7 @@ import { StateMachine } from "../lib/machine";
 describe('state machine', () => {
     let machine: StateMachine;
 
-    beforeAll(() => {
+    beforeEach(() => {
         machine = new StateMachine({
             stateTransititons: [
                 {
@@ -19,7 +19,11 @@ describe('state machine', () => {
             ],
             stateList: ['on', 'off', 'pause']
         })
-    })
+    });
+    
+    afterEach(() => {
+        machine.stop();
+    });        
 
     it('should transition to pause, if machine is on', () => {
         machine.start('on');
@@ -31,5 +35,11 @@ describe('state machine', () => {
         machine.start('off');
         machine.executeTransition('pauseEvent');
         expect(machine.getCurrentState()).toBe('on')
-    })
+    });
+
+    it('should stop the machine', () => {
+        machine.start('on');
+        machine.stop();
+        expect(machine.getCurrentState()).toBeUndefined();
+    });
 })
