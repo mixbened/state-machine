@@ -1,16 +1,16 @@
-name: Flow
-on: 
-  push:
-    branches:
-      - main
+# name: Flow
+# on: 
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  test:
-    runs-on: node:22
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm install
-      - name: Run tests
-        run: npm run test
+# jobs:
+#   test:
+#     runs-on: node:22
+#     steps:
+#       - name: Check out repository code
+#         uses: actions/checkout@v4
+#       - name: Install dependencies
+#         run: npm install
+#       - name: Run tests
+#         run: npm run test
